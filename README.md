@@ -14,6 +14,12 @@ pip install pydamicsvisual        # once published to PyPI -- also installs pyda
 pip install -e .
 ```
 
+> **Note:** this uses [`pygame-ce`](https://pyga.me/) (Community Edition), not the
+> classic `pygame` package. It's a drop-in replacement (`import pygame` works
+> identically) but is actively maintained and ships wheels for current Python
+> versions -- classic `pygame` still only has wheels up to Python 3.12, which
+> causes a source-build failure (needs Visual Studio Build Tools) on 3.13/3.14.
+
 ## Usage
 
 ```python

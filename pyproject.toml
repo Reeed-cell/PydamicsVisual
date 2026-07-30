@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pydamicsvisual"
-version = "0.1.0"
+version = "0.1.1"
 description = "Matplotlib + pygame rendering extension for the pydamics 2D physics engine."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -24,7 +24,7 @@ classifiers = [
 dependencies = [
     "pydamics>=0.1.1",
     "matplotlib",
-    "pygame",
+    "pygame-ce",
     "pillow",
 ]
 
