@@ -1,9 +1,11 @@
 """
-Demo-level helpers that aren't part of pydamics' core physics (no proper
-collision system yet), but are handy for making visual demos feel alive.
-Attach the returned callback to `world.on_step`.
+Demo-level helpers that aren't part of pydamics' core physics (this
+floor/wall bounce is simpler than the real collision/SEO system pydamics
+now has -- use those for anything beyond quick demo purposes). Attach
+the returned callback to `world.on_step`.
 """
 from __future__ import annotations
+from pydamics import compute_total_acceleration
 
 
 def floor_bounce(floor_y: float = 0.0, radius: float = 0.4, damping: float = 0.65,
@@ -21,7 +23,7 @@ def floor_bounce(floor_y: float = 0.0, radius: float = 0.4, damping: float = 0.6
                 e.position.y = floor_y + radius
                 e.velocity.y = -e.velocity.y * damping
                 # resync verlet's cached acceleration so the next step isn't skewed
-                e._prev_accel = e.compute_total_acceleration()
+                e._prev_accel = compute_total_acceleration(e)
 
             if x_bounds is not None:
                 min_x, max_x = x_bounds
