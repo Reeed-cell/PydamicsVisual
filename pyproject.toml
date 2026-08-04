@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pydamicsvisual"
+version = "0.1.4"
+description = "Matplotlib + pygame rendering extension for the pydamics 2D physics engine."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Kiko" }
+]
+keywords = ["physics", "engine", "simulation", "2d", "visualization", "pygame", "matplotlib"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Games/Entertainment",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Multimedia :: Graphics",
+]
+dependencies = [
+    "pydamics>=0.4.0",
+    "matplotlib",
+    "pygame-ce",
+    "pillow",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/pydamicsvisual"
+
+[tool.setuptools]
+packages = ["pydamicsvisual"]
