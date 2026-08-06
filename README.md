@@ -148,3 +148,13 @@ Then set up a PyPI Trusted Publisher (pypi.org → account → Publishing) with:
 Create a matching `pypi` environment under GitHub repo Settings →
 Environments, then ship a release (tag `v0.1.0`) to trigger the publish
 workflow.
+
+## License
+
+Kiko Python Software Studio License (MIT-based, with additional usage
+terms) -- see [LICENSE](LICENSE). Same terms as `pydamics` itself: free
+to use, modify, and ship in your own commercial or non-commercial
+projects, but credit pydamicsvisual/Kiko Python Software Studio
+somewhere reasonable, don't claim you authored it, and don't use it to
+build malicious or NSFW content. Not the plain MIT License, not
+OSI-approved open source -- see the LICENSE file for exact terms.

@@ -1,6 +1,7 @@
-MIT License
+Kiko Python Software Studio License
+(MIT License, with additional usage terms)
 
-Copyright (c) 2026 Kiko
+Copyright (c) 2026 Kiko Python Software Studio
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -9,8 +10,36 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+ADDITIONAL TERMS
+
+1. Attribution. Any product, game, or other work that uses this Software
+   (whether by importing it as a library, embedding it, or otherwise) must
+   include a visible credit to "pydamics" (or the specific package name, e.g.
+   "pydamicsvisual") and Kiko Python Software Studio -- for example, in an
+   about/credits screen, README, or comparable place a user would reasonably
+   look. You do not need to credit it on every screen, just somewhere a user
+   could reasonably find it.
+
+2. No misrepresentation of origin. You may not distribute this Software, or
+   a work that is substantially this Software with superficial changes, while
+   claiming you are its original author or the copyright holder.
+
+3. No malicious or harmful use. You may not use this Software to build,
+   distribute, or operate malware, tools designed to attack, exploit, or gain
+   unauthorized access to systems or data, or any other software whose
+   primary purpose is to cause harm.
+
+4. No sexually explicit or NSFW content. You may not use this Software to
+   build, distribute, or operate content that is sexually explicit,
+   pornographic, or otherwise not-safe-for-work.
+
+Sections 1 and 2 apply to the Software itself; sections 3 and 4 apply to
+what you build with it. None of these additional terms restrict your right
+to modify the Software or use it in commercial, non-commercial, open-source,
+or closed-source projects, provided your use doesn't fall under 3 or 4.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -19,3 +48,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+Note: because of the additional terms above (particularly 3 and 4), this is
+NOT the standard MIT License, and is not OSI-approved "open source" under
+the Open Source Definition (which prohibits restricting fields of use).
+It's best described as a "source-available" license. If that distinction
+matters for how you present the project, worth keeping in mind for READMEs,
+package metadata, and any "license: MIT" claims elsewhere.

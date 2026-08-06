@@ -8,14 +8,14 @@ version = "0.1.3"
 description = "Matplotlib + pygame rendering extension for the pydamics 2D physics engine."
 readme = "README.md"
 requires-python = ">=3.9"
-license = { text = "MIT" }
+license = { text = "Kiko Python Software Studio License (MIT-based, with additional usage terms; see LICENSE)" }
 authors = [
     { name = "Kiko" }
 ]
 keywords = ["physics", "engine", "simulation", "2d", "visualization", "pygame", "matplotlib"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+    "License :: Other/Proprietary License",
     "Operating System :: OS Independent",
     "Topic :: Games/Entertainment",
     "Topic :: Scientific/Engineering :: Physics",
