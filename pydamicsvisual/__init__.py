@@ -21,4 +21,4 @@ from .helpers import floor_bounce
 
 __all__ = ["MatplotlibRenderer", "PygameRenderer", "floor_bounce"]
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"
