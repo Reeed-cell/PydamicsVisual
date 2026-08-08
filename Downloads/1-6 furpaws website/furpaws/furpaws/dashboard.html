@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Furpaws Veterinary Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="staff.css">
+</head>
+<body class="dashboard-body">
+
+<header class="dash-header">
+  <div class="wrap dash-header-inner">
+    <a href="index.html" class="login-brand">
+      <img src="logo.png" alt="1-6 Fur-paws Veterinary Clinic">
+      <span>Furpaws<em>Staff</em></span>
+    </a>
+    <div class="dash-header-right">
+      <span id="dash-user-label" class="dash-user-label">…</span>
+      <button class="btn btn-ghost" id="logout-btn">Sign out</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap dash-main">
+
+  <div id="loading-state" class="dash-loading">Loading…</div>
+
+  <!-- OWNER VIEW: bookings -->
+  <section id="bookings-view" class="dash-view" hidden>
+    <div class="dash-view-head">
+      <h1>Bookings</h1>
+      <p class="dash-view-sub">Requests from the site, newest first.</p>
+    </div>
+    <a href="records.html" class="btn btn-ghost dash-records-link">View patient records →</a>
+
+    <div id="bookings-list" class="bookings-list"></div>
+    <p id="bookings-empty" class="dash-empty" hidden>No bookings yet.</p>
+  </section>
+
+  <!-- DEVELOPER VIEW: feedback inbox -->
+  <section id="feedback-view" class="dash-view" hidden>
+    <div class="dash-view-head">
+      <h1>Feedback &amp; Support</h1>
+      <p class="dash-view-sub">Bug reports and questions from clients and staff.</p>
+    </div>
+
+    <div id="feedback-list" class="bookings-list"></div>
+    <p id="feedback-empty" class="dash-empty" hidden>No feedback submitted yet.</p>
+  </section>
+
+  <section id="no-access-view" class="dash-view" hidden>
+    <div class="dash-view-head">
+      <h1>Signed in, but no staff record found.</h1>
+      <p class="dash-view-sub">Contact the site administrator.</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

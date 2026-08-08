@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff Login — Furpaws Veterinary Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="staff.css">
+</head>
+<body class="staff-body">
+
+<div class="login-wrap">
+  <a href="index.html" class="login-brand">
+    <img src="logo.png" alt="1-6 Fur-paws Veterinary Clinic">
+    <span>Furpaws<em>Staff</em></span>
+  </a>
+
+  <form id="login-form" class="login-card">
+    <h1>Staff sign in</h1>
+    <p class="login-sub">For clinic staff only.</p>
+
+    <div class="form-row">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" autocomplete="username" required autofocus>
+    </div>
+
+    <div class="form-row">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autocomplete="current-password" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="login-submit">Sign in</button>
+
+    <p class="form-status" id="login-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <a href="index.html" class="login-back">← Back to site</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="staff-login.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+.records-nav-link {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+.records-nav-link:hover { color: var(--ink); }
+
+.records-search-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.records-search-row input {
+  flex: 1;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  background: var(--white);
+}
+.records-search-row input:focus {
+  outline: none;
+  border-color: var(--clinic-red);
+}
+
+.pets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pet-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.1s ease;
+}
+.pet-card:hover {
+  border-color: var(--clinic-red);
+  transform: translateY(-1px);
+}
+.pet-card h3 { font-size: 16px; margin: 0; }
+.pet-card-arrow { color: var(--ink-soft); font-size: 18px; }
+
+.record-panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 26px 24px;
+  margin: 20px 0;
+}
+.record-panel h2, .record-panel h3 {
+  font-size: 18px;
+  margin: 0 0 18px;
+}
+
+.form-row-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.record-panel .form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.record-panel label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.record-panel label .optional {
+  font-weight: 400;
+  color: var(--ink-soft);
+  opacity: 0.7;
+}
+.record-panel input,
+.record-panel textarea {
+  border: 1.5px solid var(--line);
+  border-radius: 9px;
+  padding: 10px 12px;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  background: var(--paper-dim);
+}
+.record-panel input:focus,
+.record-panel textarea:focus {
+  outline: none;
+  border-color: var(--clinic-red);
+  background: var(--white);
+}
+.record-panel textarea { resize: vertical; }
+
+.record-panel-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.image-compress-status {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+.pet-detail-head { margin-bottom: 8px; }
+.pet-detail-head h2 { font-size: 24px; }
+
+.records-back-btn {
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  font-size: 13.5px;
+}
+
+.records-history-heading {
+  font-size: 16px;
+  margin: 28px 0 14px;
+}
+
+.record-images {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.record-thumb {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 560px) {
+  .form-row-grid { grid-template-columns: 1fr; }
+  .records-search-row { flex-direction: column; }
+}

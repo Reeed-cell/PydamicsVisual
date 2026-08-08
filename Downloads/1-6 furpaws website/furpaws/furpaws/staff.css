@@ -1,0 +1,262 @@
+/* ============================================
+   STAFF PAGES — login, dashboard
+   ============================================ */
+
+.staff-body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper-dim);
+  padding: 24px;
+}
+
+.login-wrap {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.login-brand img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.login-brand span {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--near-black);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+.login-brand em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clinic-red);
+}
+
+.login-card {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 36px 32px;
+  box-shadow: 0 20px 50px -24px rgba(20,20,20,0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.login-card h1 {
+  font-size: 24px;
+  margin: 0;
+}
+.login-sub {
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+.login-card .form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.login-card label {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.login-card input {
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--paper-dim);
+  transition: border-color 0.15s ease;
+}
+.login-card input:focus {
+  outline: none;
+  border-color: var(--clinic-red);
+  background: var(--white);
+}
+
+.login-card .btn { margin-top: 4px; width: 100%; justify-content: center; }
+.login-card .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.login-back {
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.login-back:hover { color: var(--ink); }
+
+/* header staff-login link */
+.staff-link {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 7px 16px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.staff-link:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+/* ============================================
+   DASHBOARD
+   ============================================ */
+
+.dashboard-body {
+  min-height: 100vh;
+  background: var(--paper-dim);
+}
+
+.dash-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+.dash-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+}
+.dash-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.dash-user-label {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  text-transform: capitalize;
+}
+.dash-header-right .btn {
+  padding: 9px 18px;
+  font-size: 13.5px;
+}
+
+.dash-main {
+  padding: 44px 28px 80px;
+  max-width: 780px;
+}
+
+.dash-loading {
+  color: var(--ink-soft);
+  font-size: 15px;
+  padding: 40px 0;
+}
+
+.dash-view-head { margin-bottom: 32px; }
+.dash-view-head h1 {
+  font-size: 28px;
+}
+.dash-view-sub {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  margin-top: 6px;
+}
+
+.dash-empty {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  padding: 24px 0;
+}
+
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.booking-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 22px;
+  transition: border-left-color 0.2s ease;
+}
+.booking-card[data-status="pending"] { border-left-color: var(--marigold); }
+.booking-card[data-status="confirmed"] { border-left-color: var(--sage); }
+.booking-card[data-status="done"] { border-left-color: var(--ink-soft); }
+.booking-card[data-status="cancelled"] { border-left-color: var(--clinic-red); opacity: 0.6; }
+.booking-card[data-status="open"] { border-left-color: var(--clinic-red); }
+.booking-card[data-status="resolved"] { border-left-color: var(--sage); opacity: 0.7; }
+
+.booking-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.booking-card-top h3 {
+  font-size: 17px;
+  margin: 0;
+}
+.booking-species {
+  font-weight: 400;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.status-select {
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--paper-dim);
+  flex-shrink: 0;
+}
+
+.booking-service {
+  font-size: 14.5px;
+  color: var(--ink);
+  margin-top: 10px;
+  font-weight: 500;
+}
+.booking-meta {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+.booking-notes {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin-top: 10px;
+  font-style: italic;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+}
+
+@media (max-width: 560px) {
+  .booking-card-top { flex-direction: column; }
+  .dash-header-inner { padding: 14px 20px; }
+  .dash-main { padding: 32px 20px 60px; }
+}
+
+.dash-records-link {
+  margin-bottom: 24px;
+  font-size: 13.5px;
+  padding: 9px 18px;
+}
