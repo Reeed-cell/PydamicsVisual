@@ -1,0 +1,277 @@
+/* ============================================
+   DASHBOARD — STATS, TABS, EXTRA VIEWS
+   ============================================ */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 32px 0 36px;
+}
+
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.stat-card--good { border-color: rgba(143,191,110,0.5); background: rgba(143,191,110,0.06); }
+.stat-card--bad { border-color: rgba(209,56,43,0.4); background: rgba(209,56,43,0.05); }
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--near-black);
+}
+.stat-label {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+.dash-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 28px;
+}
+.dash-tab {
+  background: none;
+  border: none;
+  padding: 12px 18px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.dash-tab:hover { color: var(--ink); }
+.dash-tab.is-active {
+  color: var(--clinic-red);
+  border-bottom-color: var(--clinic-red);
+}
+
+.dash-tab-panel { min-height: 100px; }
+
+.error-message {
+  font-size: 15px;
+  color: var(--clinic-red-deep);
+  font-family: var(--font-mono);
+}
+.error-stack-details {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+}
+.error-stack-details summary {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.error-stack {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  background: var(--paper-dim);
+  padding: 10px 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@media (max-width: 700px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .dash-tabs { overflow-x: auto; white-space: nowrap; }
+}
+
+/* ============================================
+   OWNER: CALENDAR
+   ============================================ */
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.calendar-nav .btn {
+  padding: 8px 16px;
+  font-size: 13px;
+}
+.calendar-range-label {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--near-black);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar-day {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 8px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.calendar-day--today {
+  border-color: var(--clinic-red);
+  background: rgba(209,56,43,0.03);
+}
+
+.calendar-day-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.calendar-day-name {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+.calendar-day-date {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--near-black);
+}
+.calendar-day--today .calendar-day-date { color: var(--clinic-red); }
+
+.calendar-day-shifts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.calendar-shift-chip {
+  background: var(--sage-deep);
+  color: var(--white);
+  font-size: 10.5px;
+  font-weight: 500;
+  padding: 3px 7px;
+  border-radius: 100px;
+}
+.calendar-empty-note {
+  font-size: 11px;
+  color: var(--ink-soft);
+  opacity: 0.6;
+}
+
+.calendar-day-bookings {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.calendar-booking-chip {
+  display: flex;
+  flex-direction: column;
+  background: var(--paper-dim);
+  border-left: 2px solid var(--marigold);
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 11px;
+}
+.calendar-booking-chip[data-status="confirmed"] { border-left-color: var(--sage); }
+.calendar-booking-chip[data-status="done"] { border-left-color: var(--ink-soft); }
+.calendar-booking-chip[data-status="cancelled"] { border-left-color: var(--clinic-red); opacity: 0.55; }
+.calendar-booking-time {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-soft);
+}
+.calendar-booking-pet {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .calendar-grid { grid-template-columns: repeat(7, minmax(110px, 1fr)); overflow-x: auto; }
+}
+@media (max-width: 560px) {
+  .calendar-nav { flex-wrap: wrap; gap: 10px; }
+  .calendar-range-label { order: -1; width: 100%; text-align: center; }
+}
+
+/* ============================================
+   DEVELOPER: ACTIVITY CHART
+   ============================================ */
+
+.activity-chart {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px 20px;
+  margin-top: 20px;
+}
+
+.activity-legend {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.activity-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+.activity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.activity-dot--bookings { background: var(--sage); }
+.activity-dot--errors { background: var(--clinic-red); }
+
+.activity-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 140px;
+}
+.activity-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.activity-bar-pair {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2px;
+}
+.activity-bar {
+  width: 40%;
+  border-radius: 3px 3px 0 0;
+  min-height: 2px;
+  transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.activity-bar--bookings { background: var(--sage); }
+.activity-bar--errors { background: var(--clinic-red); }
+.activity-col-label {
+  font-size: 9.5px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}

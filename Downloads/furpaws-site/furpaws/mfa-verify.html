@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verify — Furpaws Veterinary Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+<link rel="manifest" href="favicons/site.webmanifest">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="staff.css">
+<link rel="stylesheet" href="account-security.css">
+</head>
+<body class="staff-body">
+
+<div class="login-wrap">
+  <a href="index.html" class="login-brand">
+    <img src="logo.png" alt="1-6 Fur-paws Veterinary Clinic">
+    <span>Furpaws<em>Staff</em></span>
+  </a>
+
+  <div id="loading-check" class="login-card">
+    <p class="login-sub" style="margin:0;">Checking…</p>
+  </div>
+
+  <form id="mfa-step-form" class="login-card" hidden>
+    <h1>Enter your code</h1>
+    <p class="login-sub">Open your authenticator app and enter the 6-digit code.</p>
+
+    <div class="form-row">
+      <label for="mfa-step-code">6-digit code</label>
+      <input type="text" id="mfa-step-code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="000000" required autocomplete="one-time-code" autofocus>
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="mfa-step-submit">Verify</button>
+
+    <p class="form-status" id="mfa-step-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <a href="staff-login.html" class="login-back">← Back to sign in</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="error-logger.js"></script>
+<script src="mfa-verify.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency Shutdown — Furpaws Veterinary Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="staff.css">
+<link rel="stylesheet" href="dashboard-extra.css">
+<link rel="stylesheet" href="shutdown.css">
+</head>
+<body class="dashboard-body">
+
+<header class="dash-header">
+  <div class="wrap dash-header-inner">
+    <a href="dashboard.html" class="login-brand">
+      <img src="logo.png" alt="1-6 Fur-paws Veterinary Clinic">
+      <span>Furpaws<em>Staff</em></span>
+    </a>
+    <div class="dash-header-right">
+      <a href="dashboard.html" class="records-nav-link">← Dashboard</a>
+      <button class="btn btn-ghost" id="logout-btn">Sign out</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap dash-main" style="max-width: 720px;">
+
+  <div id="loading-state" class="dash-loading">Loading…</div>
+  <div id="no-access-view" hidden>
+    <div class="dash-view-head">
+      <h1>You don't have access to this page.</h1>
+    </div>
+  </div>
+
+  <div id="shutdown-view" hidden>
+    <div class="dash-view-head">
+      <h1>Emergency Shutdown</h1>
+      <p class="dash-view-sub">Use these only if there's a real security concern — a suspected breach, a stolen credential, or a leak. Each action requires the dedicated shutdown password, separate from any login password.</p>
+    </div>
+
+    <div id="current-status" class="shutdown-status-banner"></div>
+
+    <!-- BUTTON 1: WHOLE SITE -->
+    <div class="shutdown-card">
+      <div class="shutdown-card-head">
+        <h3>Shut down the whole website</h3>
+        <p>Visitors see a maintenance page instead of the real site. Staff login is also blocked.</p>
+      </div>
+      <button class="btn shutdown-btn shutdown-btn--danger" data-action="site">Shut down site</button>
+      <button class="btn btn-ghost shutdown-btn" data-action="site-restore" hidden>Restore site</button>
+    </div>
+
+    <!-- BUTTON 2: STAFF LOGIN ONLY -->
+    <div class="shutdown-card">
+      <div class="shutdown-card-head">
+        <h3>Shut down staff login</h3>
+        <p>The public site keeps working normally. No one can sign in to the staff dashboard until restored.</p>
+      </div>
+      <button class="btn shutdown-btn shutdown-btn--danger" data-action="staff">Shut down staff login</button>
+      <button class="btn btn-ghost shutdown-btn" data-action="staff-restore" hidden>Restore staff login</button>
+    </div>
+
+    <!-- BUTTON 3: SINGLE ACCOUNT -->
+    <div class="shutdown-card">
+      <div class="shutdown-card-head">
+        <h3>Disable one staff account</h3>
+        <p>Only the account you specify is disabled. Everyone else keeps working normally.</p>
+      </div>
+      <input type="text" id="target-username" placeholder="username to disable/restore" class="shutdown-username-input">
+      <div class="shutdown-btn-row">
+        <button class="btn shutdown-btn shutdown-btn--danger" data-action="account">Disable account</button>
+        <button class="btn btn-ghost shutdown-btn" data-action="account-restore">Restore account</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONFIRMATION MODAL -->
+  <div class="modal-overlay" id="confirm-modal-overlay" hidden>
+    <div class="modal" role="dialog" aria-labelledby="confirm-modal-title">
+      <button type="button" class="modal-close" id="close-confirm-modal" aria-label="Close">×</button>
+      <h2 id="confirm-modal-title">Confirm action</h2>
+      <p class="modal-sub" id="confirm-modal-desc"></p>
+
+      <form id="confirm-form">
+        <div class="form-row">
+          <label for="shutdown-password">Shutdown password</label>
+          <input type="password" id="shutdown-password" required autocomplete="off">
+        </div>
+
+        <div id="confirm-turnstile" class="turnstile-container"></div>
+
+        <button type="submit" class="btn shutdown-btn--danger" id="confirm-submit-btn">Confirm</button>
+        <p class="form-status" id="confirm-status"></p>
+      </form>
+    </div>
+  </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="error-logger.js"></script>
+<script src="turnstile-helper.js"></script>
+<script src="shutdown.js"></script>
+<script src="inactivity-timeout.js"></script>
+</body>
+</html>

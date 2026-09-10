@@ -1,0 +1,40 @@
+body.inactivity-blurred > *:not(#inactivity-blur-overlay) {
+  filter: blur(18px);
+  transition: filter 0.6s ease;
+  pointer-events: none;
+  user-select: none;
+}
+
+#inactivity-blur-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 20, 20, 0.15);
+}
+
+body.inactivity-blurred #inactivity-blur-overlay {
+  display: flex;
+}
+
+.inactivity-message {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 28px 36px;
+  text-align: center;
+  box-shadow: 0 24px 60px -20px rgba(0,0,0,0.35);
+  filter: none;
+}
+.inactivity-message p {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--near-black);
+  margin: 0 0 6px;
+}
+.inactivity-message span {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}

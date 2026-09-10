@@ -1,0 +1,32 @@
+.mfa-qr-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 20px;
+  background: var(--paper-dim);
+  border-radius: 12px;
+}
+.mfa-qr-image {
+  width: 180px;
+  height: 180px;
+}
+.mfa-secret-fallback {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-bottom: 22px;
+}
+.mfa-secret-fallback code {
+  font-family: var(--font-mono);
+  background: var(--paper-dim);
+  padding: 2px 6px;
+  border-radius: 4px;
+  word-break: break-all;
+}
+
+#mfa-code {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  letter-spacing: 0.3em;
+}

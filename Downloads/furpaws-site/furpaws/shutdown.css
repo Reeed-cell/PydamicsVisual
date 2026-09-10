@@ -1,0 +1,66 @@
+.shutdown-status-banner {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 28px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.shutdown-reason {
+  margin-top: 6px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.shutdown-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.shutdown-card-head h3 {
+  font-size: 16px;
+  margin: 0 0 6px;
+}
+.shutdown-card-head p {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.shutdown-btn {
+  font-size: 13.5px;
+  padding: 10px 20px;
+}
+.shutdown-btn--danger {
+  background: var(--clinic-red);
+  color: var(--white);
+  border: 1.5px solid transparent;
+}
+.shutdown-btn--danger:hover { background: var(--clinic-red-deep); }
+
+.shutdown-btn-row {
+  display: flex;
+  gap: 10px;
+}
+
+.shutdown-username-input {
+  width: 100%;
+  border: 1.5px solid var(--line);
+  border-radius: 9px;
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  margin-bottom: 12px;
+  background: var(--paper-dim);
+  color: var(--ink);
+}
+.shutdown-username-input:focus {
+  outline: none;
+  border-color: var(--clinic-red);
+  background: var(--white);
+}

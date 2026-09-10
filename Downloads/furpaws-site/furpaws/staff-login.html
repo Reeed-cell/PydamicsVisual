@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff Login — Furpaws Veterinary Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+<link rel="manifest" href="favicons/site.webmanifest">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="staff.css">
+</head>
+<body class="staff-body">
+
+<div id="google_translate_element" class="gtranslate-hidden"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: 'en',
+        includedLanguages: 'en,bik,ceb,tl,hil,ilo,pam,pag,war',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      },
+      'google_translate_element'
+    );
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<div class="login-wrap">
+  <div class="lang-switcher lang-switcher--standalone">
+    <button type="button" class="lang-switcher-trigger" id="lang-switcher-trigger">
+      <span aria-hidden="true">🌐</span>
+      <span id="lang-switcher-current">English</span>
+    </button>
+    <div class="lang-switcher-menu" id="lang-switcher-menu"></div>
+  </div>
+
+  <a href="index.html" class="login-brand">
+    <img src="logo.png" alt="1-6 Fur-paws Veterinary Clinic">
+    <span>Furpaws<em>Staff</em></span>
+  </a>
+
+  <form id="login-form" class="login-card">
+    <h1>Staff sign in</h1>
+    <p class="login-sub">For clinic staff only.</p>
+
+    <div class="form-row">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" autocomplete="username" required autofocus>
+    </div>
+
+    <div class="form-row">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autocomplete="current-password" required>
+    </div>
+
+    <div id="login-turnstile" class="turnstile-container"></div>
+
+    <button type="submit" class="btn btn-primary" id="login-submit">Sign in</button>
+
+    <p class="form-status" id="login-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <a href="index.html" class="login-back">← Back to site</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="error-logger.js"></script>
+<script src="turnstile-helper.js"></script>
+<script src="language-switcher.js"></script>
+<script src="staff-login.js"></script>
+</body>
+</html>

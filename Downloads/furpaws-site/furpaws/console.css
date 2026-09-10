@@ -1,0 +1,174 @@
+.console-warning {
+  background: rgba(209, 56, 43, 0.08);
+  border: 1px solid rgba(209, 56, 43, 0.3);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 13.5px;
+  color: var(--clinic-red-deep);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+#console-form {
+  margin-bottom: 24px;
+}
+
+#console-query {
+  width: 100%;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  color: var(--ink);
+  background: var(--white);
+  resize: vertical;
+  line-height: 1.6;
+}
+#console-query:focus {
+  outline: none;
+  border-color: var(--clinic-red);
+}
+
+.console-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+.console-hint {
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+}
+
+.console-output {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 4px;
+  overflow-x: auto;
+  min-height: 60px;
+}
+
+.console-error {
+  color: var(--clinic-red-deep);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 16px 18px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.console-empty {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  padding: 16px 18px;
+}
+
+.console-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-family: var(--font-mono);
+}
+.console-table th {
+  text-align: left;
+  padding: 10px 14px;
+  background: var(--paper-dim);
+  color: var(--ink-soft);
+  font-weight: 600;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.console-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.console-table tr:last-child td { border-bottom: none; }
+.console-null {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+.console-row-count {
+  font-size: 12px;
+  color: var(--ink-soft);
+  padding: 10px 14px;
+}
+
+.console-json {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--ink);
+  padding: 16px 18px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+}
+
+.console-check-pass { color: #4a8f5c; font-weight: 600; }
+.console-check-fail { color: var(--clinic-red-deep); font-weight: 600; }
+
+.console-delete-btn {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11.5px;
+  color: var(--clinic-red-deep);
+  cursor: pointer;
+}
+.console-delete-btn:hover { background: rgba(209,56,43,0.08); }
+
+.api-form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.api-form-row select {
+  flex-shrink: 0;
+  width: 120px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--white);
+}
+.api-form-row input {
+  flex: 1;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--white);
+}
+.api-form-row input:focus, .api-form-row select:focus {
+  outline: none;
+  border-color: var(--clinic-red);
+}
+
+#api-body, #js-code {
+  width: 100%;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  color: var(--ink);
+  background: var(--white);
+  resize: vertical;
+  line-height: 1.6;
+}
+#api-body:focus, #js-code:focus {
+  outline: none;
+  border-color: var(--clinic-red);
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products — Furpaws Veterinary Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+<link rel="manifest" href="favicons/site.webmanifest">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="products.css">
+</head>
+<body>
+
+<div id="google_translate_element" class="gtranslate-hidden"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: 'en',
+        includedLanguages: 'en,bik,ceb,tl,hil,ilo,pam,pag,war',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      },
+      'google_translate_element'
+    );
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="wordmark">
+      <img src="logo.png" alt="1-6 Fur-paws Veterinary Clinic" class="wordmark-logo">
+      <span class="wordmark-text">Furpaws<em>Veterinary</em></span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html#services">Services</a>
+      <a href="products.html">Products</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#location">Visit</a>
+      <a href="staff-login.html" class="mobile-staff-link">Staff Login</a>
+    </nav>
+    <a href="staff-login.html" class="staff-link">Staff Login</a>
+
+    <div class="lang-switcher">
+      <button type="button" class="lang-switcher-trigger" id="lang-switcher-trigger">
+        <span aria-hidden="true">🌐</span>
+        <span id="lang-switcher-current">English</span>
+      </button>
+      <div class="lang-switcher-menu" id="lang-switcher-menu"></div>
+    </div>
+
+    <a href="index.html#book" class="btn btn-primary nav-cta">Book a visit</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="products-hero">
+    <div class="wrap">
+      <p class="eyebrow">What we carry</p>
+      <h1>Treatments &amp; vitamins</h1>
+      <p class="products-hero-lede">Common products we keep on hand at the clinic. Availability changes — call ahead if you need something specific.</p>
+    </div>
+  </section>
+
+  <section class="products-listing">
+    <div class="wrap">
+      <input type="text" id="products-search" class="products-search-input" placeholder="Search by name or brand…">
+      <div id="products-grid" class="products-grid"></div>
+      <p id="products-empty" class="dash-empty" hidden>Nothing listed yet — check back soon, or call us to ask about a specific product.</p>
+      <p id="products-no-match" class="dash-empty" hidden>No products match your search.</p>
+      <p id="products-loading" class="dash-empty">Loading…</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="1-6 Fur-paws Veterinary Clinic" class="footer-logo">
+      <span class="wordmark-text small">Furpaws<em>Veterinary</em></span>
+    </div>
+    <p>45-C Gov. Pascual Ave, Malabon, Metro Manila · 8425-5965</p>
+  </div>
+  <a href="https://hexagon-website-peach.vercel.app" target="_blank" rel="noopener noreferrer" class="footer-easter-egg" aria-label="A little something extra">
+    <img src="hexagon-egg.png" alt="">
+  </a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="site-status-check.js"></script>
+<script src="error-logger.js"></script>
+<script src="script.js"></script>
+<script src="language-switcher.js"></script>
+<script src="products.js"></script>
+</body>
+</html>

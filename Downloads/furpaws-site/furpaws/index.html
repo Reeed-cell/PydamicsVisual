@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Furpaws Veterinary Clinic — Malabon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+<link rel="manifest" href="favicons/site.webmanifest">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="google_translate_element" class="gtranslate-hidden"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: 'en',
+        includedLanguages: 'en,bik,ceb,tl,hil,ilo,pam,pag,war',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      },
+      'google_translate_element'
+    );
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<div class="grain"></div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#" class="wordmark">
+      <img src="logo.png" alt="1-6 Fur-paws Veterinary Clinic" class="wordmark-logo">
+      <span class="wordmark-text">Furpaws<em>Veterinary</em></span>
+    </a>
+    <nav class="main-nav">
+      <a href="#services" title="Our clinic services">Services</a>
+      <a href="products.html" title="Treatments and vitamins we carry">Products</a>
+      <a href="#about" title="About our clinic">About</a>
+      <a href="#faq" title="Frequently asked questions">FAQ</a>
+      <a href="#location" title="Visit our clinic">Visit</a>
+      <a href="staff-login.html" class="mobile-staff-link">Staff Login</a>
+    </nav>
+    <a href="staff-login.html" class="staff-link">Staff Login</a>
+
+    <div class="lang-switcher">
+      <button type="button" class="lang-switcher-trigger" id="lang-switcher-trigger">
+        <span aria-hidden="true">🌐</span>
+        <span id="lang-switcher-current">English</span>
+      </button>
+      <div class="lang-switcher-menu" id="lang-switcher-menu"></div>
+    </div>
+
+    <a href="#book" class="btn btn-primary nav-cta">Book a visit</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Malabon's neighborhood animal clinic</p>
+        <h1>Good Animal Care,<br>A Promise We Swear.</h1>
+        <p class="hero-lede">Furpaws Veterinary Clinic has been the corner your neighbors turn to when a cat won't eat, a pup limps home, or it's just time for a check-up. Walk in, or book ahead.</p>
+        <div class="hero-actions">
+          <a href="#book" class="btn btn-primary">Book a visit</a>
+          <a href="#location" class="btn btn-ghost">Get directions</a>
+        </div>
+      </div>
+
+      <div class="hours-board" id="hours-board" data-reveal>
+        <div class="hours-board-head">
+          <span class="hours-dot" id="status-dot"></span>
+          <span class="hours-status" id="status-text">Checking hours…</span>
+        </div>
+        <p class="hours-clock" id="hours-clock">–</p>
+        <ul class="hours-list" id="hours-list">
+          <li data-day="1"><span>Mon</span><span>2:00 – 7:00 PM</span></li>
+          <li data-day="2"><span>Tue</span><span>2:00 – 7:00 PM</span></li>
+          <li data-day="3"><span>Wed</span><span>2:00 – 7:00 PM</span></li>
+          <li data-day="4"><span>Thu</span><span>2:00 – 6:00 PM</span></li>
+          <li data-day="5"><span>Fri</span><span>2:00 – 7:00 PM</span></li>
+          <li data-day="6"><span>Sat</span><span>2:00 – 7:00 PM</span></li>
+          <li class="hours-sun" data-day="0"><span>Sun</span><span>Closed</span></li>
+        </ul>
+        <p class="hours-note">45-C Gov. Pascual Ave, Malabon</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <p class="eyebrow">What we treat</p>
+      <h2>Care for the whole visit,<br>not just the symptom.</h2>
+
+      <div class="service-grid">
+        <article class="service-card" data-service="checkups" data-reveal data-reveal-delay="1">
+          <span class="service-index">Wellness</span>
+          <h3>Check-ups</h3>
+          <p>Routine exams and the kind of visit where nothing's wrong — and we'd like to keep it that way.</p>
+          <span class="service-card-more">Learn more →</span>
+        </article>
+        <article class="service-card" data-service="urgent" data-reveal data-reveal-delay="2">
+          <span class="service-index">Urgent</span>
+          <h3>Urgent visits</h3>
+          <p>Limping, vomiting, not eating, acting off — bring them in and we'll work out what's going on.</p>
+          <span class="service-card-more">Learn more →</span>
+        </article>
+        <article class="service-card" data-service="surgery" data-reveal data-reveal-delay="3">
+          <span class="service-index">Surgical</span>
+          <h3>Basic Surgery</h3>
+          <p>Common procedures done with proper pre-op checks and a recovery plan you'll actually understand.</p>
+          <span class="service-card-more">Learn more →</span>
+        </article>
+        <article class="service-card" data-service="lab" data-reveal data-reveal-delay="4">
+          <span class="service-index">Testing</span>
+          <h3>Lab work</h3>
+          <p>On-site lab testing so more questions get answered the same day, not next week.</p>
+          <span class="service-card-more">Learn more →</span>
+        </article>
+        <article class="service-card" data-service="diagnostics" data-reveal data-reveal-delay="5">
+          <span class="service-index">Imaging</span>
+          <h3>Diagnostics</h3>
+          <p>A closer look when a check-up alone doesn't give the full picture.</p>
+          <span class="service-card-more">Learn more →</span>
+        </article>
+        <article class="service-card" data-service="pharmacy" data-reveal>
+          <span class="service-index">Pharmacy</span>
+          <h3>Basic Pharmacy</h3>
+          <p>Common prescriptions available right at the counter — for anything else, we'll point you where to get it.</p>
+          <span class="service-card-more">Learn more →</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE DETAIL MODAL -->
+  <div class="modal-overlay" id="service-modal-overlay" hidden>
+    <div class="modal" role="dialog" aria-labelledby="service-modal-title">
+      <button type="button" class="modal-close" id="close-service-modal" aria-label="Close">×</button>
+      <span class="service-index" id="service-modal-eyebrow"></span>
+      <h2 id="service-modal-title"></h2>
+      <p id="service-modal-body" class="modal-sub" style="margin-bottom: 20px;"></p>
+      <a href="#book" class="btn btn-primary" id="service-modal-book">Book this service</a>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap about-inner">
+      <div class="about-copy" data-reveal>
+        <p class="eyebrow">Who's behind the counter</p>
+        <h2>Led by Dr. Franz Membrere, DVM.</h2>
+        <p>Furpaws was built as a clinic you don't have to cross the city for — the kind of place where the staff remember your dog's name before they remember yours. Under Dr. Membrere, the clinic keeps things small enough to know your pet, and thorough enough that you don't worry after you leave.</p>
+
+        <ul class="about-points">
+          <li><span class="about-points-mark">✓</span> Straightforward answers, no runaround</li>
+          <li><span class="about-points-mark">✓</span> Medications available on-site</li>
+          <li><span class="about-points-mark">✓</span> Small clinic — you'll see familiar faces</li>
+        </ul>
+      </div>
+      <div class="about-figure" aria-hidden="true" data-reveal data-reveal-delay="1">
+        <img src="logo.png" alt="" class="about-figure-logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK -->
+  <section class="book" id="book">
+    <div class="wrap book-inner">
+      <p class="eyebrow">Ready when you are</p>
+      <h2>Request a booking</h2>
+      <p class="book-note">Fill this out and we'll confirm your appointment. Prefer to talk it through? Call <a href="tel:84255965" class="inline-link">8425-5965</a>.</p>
+
+      <form id="booking-form" class="booking-form">
+        <div class="form-row">
+          <label for="owner_name">Your name</label>
+          <input type="text" id="owner_name" name="owner_name" required autocomplete="name">
+        </div>
+
+        <div class="form-row">
+          <label for="owner_contact">Phone or email</label>
+          <input type="text" id="owner_contact" name="owner_contact" required autocomplete="tel">
+        </div>
+
+        <div class="form-row form-row--split">
+          <div>
+            <label for="pet_name">Pet's name</label>
+            <input type="text" id="pet_name" name="pet_name" required>
+          </div>
+          <div>
+            <label for="pet_species">Species</label>
+            <input type="text" id="pet_species" name="pet_species" placeholder="Dog, cat, etc." required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="service">Service needed</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Choose a service</option>
+            <option value="Check-up">Check-up</option>
+            <option value="Urgent visit">Urgent visit</option>
+            <option value="Basic Surgery">Basic Surgery</option>
+            <option value="Lab work">Lab work</option>
+            <option value="Diagnostics">Diagnostics</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="preferred_datetime">Preferred date &amp; time</label>
+          <input type="datetime-local" id="preferred_datetime" name="preferred_datetime" required>
+        </div>
+
+        <div class="form-row">
+          <label for="notes">Anything we should know? <span class="optional">(optional)</span></label>
+          <textarea id="notes" name="notes" rows="3"></textarea>
+        </div>
+
+        <div class="form-row">
+          <label for="booking-attachment">Photo or video <span class="optional">(optional, max 25MB)</span></label>
+          <input type="file" id="booking-attachment" name="booking-attachment" accept="image/*,video/*">
+          <p id="booking-attachment-status" class="attachment-status"></p>
+        </div>
+
+        <!-- Honeypot — hidden from real visitors via CSS, bots that
+             auto-fill every field will trip this and get silently
+             rejected. Real users never see or interact with it. -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="booking-hp">Leave this field empty</label>
+          <input type="text" id="booking-hp" name="booking-hp" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div id="booking-turnstile" class="turnstile-container"></div>
+
+        <button type="submit" class="btn btn-primary" id="booking-submit">Request booking</button>
+
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <p class="eyebrow">Good to know</p>
+      <h2>Questions people usually ask.</h2>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Do I need to book ahead, or can I walk in?</summary>
+          <p>Walk-ins are welcome, but booking ahead means less waiting — especially for surgery or diagnostics, which need a bit of prep. If it's urgent, come straight in; we'll fit you in.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What should I bring to the first visit?</summary>
+          <p>Any past medical records or vaccination history you have, and your pet on a leash or in a carrier — even calm pets can spook in a new place.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What forms of payment do you accept?</summary>
+          <p>Cash on-site. Call ahead if you need to check on other options for your visit.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you treat animals other than cats and dogs?</summary>
+          <p>Give us a call before heading over — it depends on the case, and we'd rather confirm than have you make the trip for nothing.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What if it's an emergency outside clinic hours?</summary>
+          <p>Call us first at <a href="tel:84255965" class="faq-inline-link">8425-5965</a> — if we can't take it, we'll try to point you somewhere that can.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION / CONTACT -->
+  <section class="location" id="location">
+    <div class="wrap location-inner">
+      <div class="location-block">
+        <p class="eyebrow">Find us</p>
+        <h2>45-C Gov. Pascual Ave</h2>
+        <p>Malabon, Metro Manila</p>
+        <p class="location-phone">
+          <a href="tel:84255965">8425-5965</a>
+        </p>
+      </div>
+      <div class="location-hours">
+        <h3>Clinic hours</h3>
+        <ul class="hours-list hours-list--dark">
+          <li><span>Monday, Tue, Wed, Fri, Sat</span><span>2:00 – 7:00 PM</span></li>
+          <li><span>Thursday</span><span>2:00 – 6:00 PM</span></li>
+          <li><span>Sunday</span><span>Closed</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="location-map">
+        <iframe
+          src="https://www.google.com/maps?q=45-C+Gov.+Pascual+Ave,+Malabon,+Metro+Manila&output=embed"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Furpaws Veterinary Clinic location map">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="1-6 Fur-paws Veterinary Clinic" class="footer-logo">
+      <span class="wordmark-text small">Furpaws<em>Veterinary</em></span>
+    </div>
+    <p>45-C Gov. Pascual Ave, Malabon, Metro Manila · 8425-5965</p>
+    <div class="footer-links">
+      <button type="button" class="footer-link-btn" id="open-feedback-modal">Report an issue</button>
+      <span class="footer-link-sep">·</span>
+      <button type="button" class="footer-link-btn" id="open-mail-modal">Message the clinic</button>
+    </div>
+  </div>
+  <a href="https://hexagon-website-peach.vercel.app" target="_blank" rel="noopener noreferrer" class="footer-easter-egg" aria-label="A little something extra">
+    <img src="hexagon-egg.png" alt="">
+  </a>
+</footer>
+
+<!-- FEEDBACK MODAL -->
+<div class="modal-overlay" id="feedback-modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-labelledby="feedback-modal-title">
+    <button type="button" class="modal-close" id="close-feedback-modal" aria-label="Close">×</button>
+    <h2 id="feedback-modal-title">Report an issue</h2>
+    <p class="modal-sub">Found a bug, or have a suggestion about the website? Let us know.</p>
+
+    <form id="feedback-form">
+      <div class="form-row">
+        <label for="fb-category">Category</label>
+        <select id="fb-category" required>
+          <option value="" disabled selected>Choose one</option>
+          <option value="bug">Something's broken</option>
+          <option value="suggestion">Suggestion</option>
+          <option value="question">Question</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="fb-message">Message</label>
+        <textarea id="fb-message" rows="4" required></textarea>
+      </div>
+      <div class="form-row form-row--split">
+        <div>
+          <label for="fb-name">Name <span class="optional">(optional)</span></label>
+          <input type="text" id="fb-name">
+        </div>
+        <div>
+          <label for="fb-email">Email <span class="optional">(optional)</span></label>
+          <input type="email" id="fb-email">
+        </div>
+      </div>
+
+      <div class="hp-field" aria-hidden="true">
+        <label for="fb-hp">Leave this field empty</label>
+        <input type="text" id="fb-hp" name="fb-hp" tabindex="-1" autocomplete="off">
+      </div>
+      <div id="feedback-turnstile" class="turnstile-container"></div>
+
+      <button type="submit" class="btn btn-primary" id="feedback-submit">Send</button>
+      <p class="form-status" id="feedback-status"></p>
+    </form>
+  </div>
+</div>
+
+<!-- MAIL MODAL -->
+<div class="modal-overlay" id="mail-modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-labelledby="mail-modal-title">
+    <button type="button" class="modal-close" id="close-mail-modal" aria-label="Close">×</button>
+    <h2 id="mail-modal-title">Message the clinic</h2>
+    <p class="modal-sub">Send a message directly to a staff address.</p>
+
+    <form id="mail-form">
+      <div class="form-row">
+        <label for="mail-to">To</label>
+        <select id="mail-to" required>
+          <option value="" disabled selected>Choose a staff member</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="mail-from-name">Your name</label>
+        <input type="text" id="mail-from-name" required>
+      </div>
+      <div class="form-row">
+        <label for="mail-from-contact">Your email or phone</label>
+        <input type="text" id="mail-from-contact" required>
+      </div>
+      <div class="form-row">
+        <label for="mail-subject">Subject <span class="optional">(optional)</span></label>
+        <input type="text" id="mail-subject">
+      </div>
+      <div class="form-row">
+        <label for="mail-body">Message</label>
+        <textarea id="mail-body" rows="4" required></textarea>
+      </div>
+
+      <div class="hp-field" aria-hidden="true">
+        <label for="mail-hp">Leave this field empty</label>
+        <input type="text" id="mail-hp" name="mail-hp" tabindex="-1" autocomplete="off">
+      </div>
+      <div id="mail-turnstile" class="turnstile-container"></div>
+
+      <button type="submit" class="btn btn-primary" id="mail-submit">Send message</button>
+      <p class="form-status" id="mail-status"></p>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="site-status-check.js"></script>
+<script src="error-logger.js"></script>
+<script src="script.js"></script>
+<script src="turnstile-helper.js"></script>
+<script src="suspicious-input-check.js"></script>
+<script src="booking-form.js"></script>
+<script src="contact-modals.js"></script>
+<script src="service-modal.js"></script>
+<script src="faq-accordion.js"></script>
+<script src="language-switcher.js"></script>
+<script src="scroll-reveal.js"></script>
+</body>
+</html>

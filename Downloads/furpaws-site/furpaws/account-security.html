@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account Security — Furpaws Veterinary Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="staff.css">
+<link rel="stylesheet" href="inactivity-timeout.css">
+<link rel="stylesheet" href="records.css">
+<link rel="stylesheet" href="dashboard-extra.css">
+<link rel="stylesheet" href="account-security.css">
+</head>
+<body class="dashboard-body">
+
+<header class="dash-header">
+  <div class="wrap dash-header-inner">
+    <a href="dashboard.html" class="login-brand">
+      <img src="logo.png" alt="1-6 Fur-paws Veterinary Clinic">
+      <span>Furpaws<em>Staff</em></span>
+    </a>
+    <div class="dash-header-right">
+      <a href="dashboard.html" class="records-nav-link">← Dashboard</a>
+      <button class="btn btn-ghost" id="logout-btn">Sign out</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap dash-main" style="max-width: 560px;">
+
+  <div id="loading-state" class="dash-loading">Loading…</div>
+
+  <div id="security-view" hidden>
+    <div class="dash-view-head">
+      <h1>Account security</h1>
+      <p class="dash-view-sub">Add two-factor authentication for extra protection on your account. Optional, but recommended.</p>
+    </div>
+
+    <!-- Status: no 2FA yet -->
+    <div id="mfa-disabled-view" class="record-panel" hidden>
+      <h3>Two-factor authentication is off</h3>
+      <p class="dash-view-sub" style="margin-bottom: 20px;">Once enabled, you'll need a code from an authenticator app (like Google Authenticator or Authy) in addition to your password when signing in.</p>
+      <button class="btn btn-primary" id="start-enroll-btn">Enable two-factor authentication</button>
+    </div>
+
+    <!-- Enrollment flow -->
+    <div id="mfa-enroll-view" class="record-panel" hidden>
+      <h3>Set up your authenticator app</h3>
+      <p class="dash-view-sub">Scan this QR code with your authenticator app, then enter the 6-digit code it shows.</p>
+      <div id="mfa-qr-container" class="mfa-qr-container"></div>
+      <p class="mfa-secret-fallback">Can't scan? Enter this code manually: <code id="mfa-secret-text"></code></p>
+
+      <form id="mfa-verify-form">
+        <div class="form-row">
+          <label for="mfa-code">6-digit code</label>
+          <input type="text" id="mfa-code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="000000" required autocomplete="one-time-code">
+        </div>
+        <button type="submit" class="btn btn-primary">Verify and enable</button>
+        <p class="form-status" id="mfa-enroll-status"></p>
+      </form>
+      <button class="btn btn-ghost" id="cancel-enroll-btn" style="margin-top: 10px;">Cancel</button>
+    </div>
+
+    <!-- Status: 2FA enabled -->
+    <div id="mfa-enabled-view" class="record-panel" hidden>
+      <h3>Two-factor authentication is on</h3>
+      <p class="dash-view-sub" style="margin-bottom: 20px;">Your account is protected with an authenticator app code at sign-in.</p>
+      <button class="btn btn-ghost" id="disable-mfa-btn">Disable two-factor authentication</button>
+      <p class="form-status" id="mfa-disable-status"></p>
+    </div>
+  </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="error-logger.js"></script>
+<script src="account-security.js"></script>
+<script src="inactivity-timeout.js"></script>
+</body>
+</html>

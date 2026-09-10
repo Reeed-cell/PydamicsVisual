@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developer Console — Furpaws Veterinary Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="staff.css">
+<link rel="stylesheet" href="dashboard-extra.css">
+<link rel="stylesheet" href="console.css">
+</head>
+<body class="dashboard-body">
+
+<header class="dash-header">
+  <div class="wrap dash-header-inner">
+    <a href="dashboard.html" class="login-brand">
+      <img src="logo.png" alt="1-6 Fur-paws Veterinary Clinic">
+      <span>Furpaws<em>Staff</em></span>
+    </a>
+    <div class="dash-header-right">
+      <a href="dashboard.html" class="records-nav-link">← Dashboard</a>
+      <button class="btn btn-ghost" id="logout-btn">Sign out</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap dash-main" style="max-width: 900px;">
+
+  <div id="loading-state" class="dash-loading">Loading…</div>
+  <div id="no-access-view" hidden>
+    <div class="dash-view-head">
+      <h1>You don't have access to this page.</h1>
+      <p class="dash-view-sub">The SQL console is restricted to the developer account.</p>
+    </div>
+  </div>
+
+  <div id="console-view" hidden>
+    <div class="dash-view-head">
+      <h1>Developer Console</h1>
+      <p class="dash-view-sub">Runs against the live database and project. There is no undo for writes — double check before running anything destructive.</p>
+    </div>
+
+    <div class="console-warning">
+      ⚠️ These tools act on the real, live clinic system. Mistakes here are permanent.
+    </div>
+
+    <div class="dash-tabs" id="console-tabs">
+      <button class="dash-tab is-active" data-tab="sql">SQL</button>
+      <button class="dash-tab" data-tab="api">API Tester</button>
+      <button class="dash-tab" data-tab="auth">Auth Inspector</button>
+      <button class="dash-tab" data-tab="storage">Storage</button>
+      <button class="dash-tab" data-tab="config">Config Check</button>
+      <button class="dash-tab" data-tab="jsconsole">JS Scratchpad</button>
+    </div>
+
+    <!-- SQL TAB -->
+    <div class="dash-tab-panel" data-panel="sql">
+      <form id="console-form">
+        <textarea id="console-query" rows="6" placeholder="select * from bookings order by created_at desc limit 10;" spellcheck="false"></textarea>
+        <div class="console-actions">
+          <button type="submit" class="btn btn-primary" id="console-run-btn">Run query</button>
+          <span class="console-hint">Ctrl / Cmd + Enter to run</span>
+        </div>
+      </form>
+      <div id="console-output" class="console-output"></div>
+    </div>
+
+    <!-- API TESTER TAB -->
+    <div class="dash-tab-panel" data-panel="api" hidden>
+      <form id="api-form">
+        <div class="api-form-row">
+          <select id="api-method">
+            <option value="select">select</option>
+            <option value="insert">insert</option>
+            <option value="update">update</option>
+            <option value="delete">delete</option>
+            <option value="rpc">rpc</option>
+          </select>
+          <input type="text" id="api-target" placeholder="table name (or rpc function name)">
+        </div>
+        <textarea id="api-body" rows="4" placeholder='For select: filter as JSON, e.g. {"eq": {"status": "pending"}}&#10;For insert/update: row data as JSON&#10;For rpc: params as JSON' spellcheck="false"></textarea>
+        <div class="console-actions">
+          <button type="submit" class="btn btn-primary" id="api-run-btn">Send</button>
+          <span class="console-hint">Calls the real Supabase client, same as the site itself does</span>
+        </div>
+      </form>
+      <div id="api-output" class="console-output"></div>
+    </div>
+
+    <!-- AUTH INSPECTOR TAB -->
+    <div class="dash-tab-panel" data-panel="auth" hidden>
+      <button class="btn btn-ghost" id="auth-refresh-btn">Refresh</button>
+      <div id="auth-output" class="console-output" style="margin-top:16px;"></div>
+    </div>
+
+    <!-- STORAGE TAB -->
+    <div class="dash-tab-panel" data-panel="storage" hidden>
+      <div class="api-form-row">
+        <select id="storage-bucket">
+          <option value="pet-record-images">pet-record-images</option>
+          <option value="booking-attachments">booking-attachments</option>
+        </select>
+        <input type="text" id="storage-path" placeholder="folder path (optional, blank = root)">
+        <button class="btn btn-primary" id="storage-list-btn">List files</button>
+      </div>
+      <div id="storage-output" class="console-output" style="margin-top:16px;"></div>
+    </div>
+
+    <!-- CONFIG CHECK TAB -->
+    <div class="dash-tab-panel" data-panel="config" hidden>
+      <button class="btn btn-primary" id="config-run-btn">Run checks</button>
+      <div id="config-output" class="console-output" style="margin-top:16px;"></div>
+    </div>
+
+    <!-- JS SCRATCHPAD TAB -->
+    <div class="dash-tab-panel" data-panel="jsconsole" hidden>
+      <p class="dash-view-sub" style="margin-bottom:12px;">Runs real JavaScript with <code>supabaseClient</code> in scope. Use <code>await</code> freely.</p>
+      <form id="js-form">
+        <textarea id="js-code" rows="6" placeholder="const { data, error } = await supabaseClient.from('staff').select('*');&#10;return data;" spellcheck="false"></textarea>
+        <div class="console-actions">
+          <button type="submit" class="btn btn-primary" id="js-run-btn">Run</button>
+          <span class="console-hint">Ctrl / Cmd + Enter to run · last expression or 'return' value is shown</span>
+        </div>
+      </form>
+      <div id="js-output" class="console-output"></div>
+    </div>
+
+  </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="error-logger.js"></script>
+<script src="console.js"></script>
+<script src="inactivity-timeout.js"></script>
+</body>
+</html>
