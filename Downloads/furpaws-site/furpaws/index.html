@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  document.documentElement.style.visibility = 'hidden';
+  // Independent safety net: if site-status-check.js itself fails to
+  // load for any reason (blocked, 404, etc.), nothing would ever call
+  // revealPage() — this guarantees the page still shows up rather
+  // than staying invisible forever.
+  setTimeout(function () {
+    document.documentElement.style.visibility = 'visible';
+  }, 3000);
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Furpaws Veterinary Clinic — Malabon</title>

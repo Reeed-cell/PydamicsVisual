@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Furpaws Veterinary Clinic — Temporarily Unavailable</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
 <style>
   body {
@@ -21,6 +21,7 @@
   .wrap {
     text-align: center;
     max-width: 420px;
+    width: 100%;
   }
   img { width: 64px; height: 64px; margin-bottom: 24px; }
   h1 {
@@ -34,6 +35,71 @@
     margin: 0 0 20px;
   }
   a { color: #D1382B; font-weight: 500; }
+
+  .contact-toggle {
+    background: none;
+    border: none;
+    color: #D1382B;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+  }
+
+  form {
+    text-align: left;
+    margin-top: 20px;
+    display: none;
+  }
+  form.is-open { display: block; }
+  .form-row { margin-bottom: 14px; }
+  label {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #5C5C58;
+    margin-bottom: 5px;
+  }
+  input, textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1.5px solid rgba(20,20,20,0.14);
+    border-radius: 9px;
+    padding: 10px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    background: #fff;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #D1382B;
+  }
+  textarea { resize: vertical; }
+
+  .hp-field { position: absolute; left: -9999px; top: -9999px; height: 0; overflow: hidden; }
+
+  button[type="submit"] {
+    width: 100%;
+    background: #D1382B;
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    padding: 12px 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+  button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
+  button[type="submit"]:hover:not(:disabled) { background: #A82A20; }
+
+  .form-status { font-size: 13px; margin-top: 10px; min-height: 18px; }
+  .form-status--success { color: #4a8f5c; }
+  .form-status--error { color: #D1382B; }
+
+  .turnstile-container { margin-top: 12px; }
 </style>
 </head>
 <body>
@@ -41,7 +107,37 @@
     <img src="logo.png" alt="Furpaws Veterinary Clinic">
     <h1>Temporarily unavailable</h1>
     <p>The site is undergoing maintenance right now. Please check back shortly.</p>
-    <p>Need to reach us urgently? <a href="mailto:franzmembrerejr@furpawsclinic.support">Email the site administrator</a></p>
+
+    <button type="button" class="contact-toggle" id="contact-toggle">Need to reach us urgently? Send a message →</button>
+
+    <form id="contact-form">
+      <div class="form-row">
+        <label for="mnt-name">Your name</label>
+        <input type="text" id="mnt-name" required>
+      </div>
+      <div class="form-row">
+        <label for="mnt-contact">Your email or phone</label>
+        <input type="text" id="mnt-contact" required>
+      </div>
+      <div class="form-row">
+        <label for="mnt-message">Message</label>
+        <textarea id="mnt-message" rows="4" required></textarea>
+      </div>
+
+      <div class="hp-field" aria-hidden="true">
+        <label for="mnt-hp">Leave this field empty</label>
+        <input type="text" id="mnt-hp" tabindex="-1" autocomplete="off">
+      </div>
+      <div id="mnt-turnstile" class="turnstile-container"></div>
+
+      <button type="submit" id="mnt-submit">Send message</button>
+      <p class="form-status" id="mnt-status"></p>
+    </form>
   </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="turnstile-helper.js"></script>
+<script src="maintenance-contact.js"></script>
 </body>
 </html>
