@@ -5,8 +5,59 @@
   document.documentElement.style.visibility = 'hidden';
   setTimeout(function () {
     document.documentElement.style.visibility = 'visible';
+    var loader = document.getElementById('page-loader');
+    if (loader) loader.remove();
   }, 3000);
 </script>
+<style>
+  #page-loader {
+    visibility: visible;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+  #page-loader img {
+    width: 56px;
+    height: 56px;
+    animation: page-loader-pulse 1.6s ease-in-out infinite;
+  }
+  #page-loader .page-loader-dots {
+    display: flex;
+    gap: 6px;
+  }
+  #page-loader .page-loader-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #D1382B;
+    animation: page-loader-bounce 1.2s ease-in-out infinite;
+  }
+  #page-loader .page-loader-dots span:nth-child(2) { animation-delay: 0.15s; }
+  #page-loader .page-loader-dots span:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes page-loader-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; }
+  }
+  @keyframes page-loader-bounce {
+    0%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
+    40% { transform: translateY(-6px); opacity: 1; }
+  }
+  #page-loader.is-fading {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #page-loader img,
+    #page-loader .page-loader-dots span { animation: none; }
+  }
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Products — Furpaws Veterinary Clinic</title>
@@ -22,6 +73,11 @@
 <link rel="stylesheet" href="products.css">
 </head>
 <body>
+
+<div id="page-loader">
+  <img src="logo.png" alt="">
+  <div class="page-loader-dots"><span></span><span></span><span></span></div>
+</div>
 
 <div id="google_translate_element" class="gtranslate-hidden"></div>
 <script type="text/javascript">

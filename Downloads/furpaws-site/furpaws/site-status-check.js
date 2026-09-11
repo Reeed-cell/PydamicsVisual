@@ -12,6 +12,11 @@
 (async function () {
   const revealPage = () => {
     document.documentElement.style.visibility = 'visible';
+    const loader = document.getElementById('page-loader');
+    if (loader) {
+      loader.classList.add('is-fading');
+      setTimeout(() => loader.remove(), 320);
+    }
   };
 
   // Safety net: never leave the page invisible for more than ~2.5s,
