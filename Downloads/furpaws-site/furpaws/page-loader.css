@@ -1,0 +1,53 @@
+/* Shared loading screen for auth-gated staff pages. Loaded via a
+   normal <link rel="stylesheet"> — that's still render-blocking in
+   every browser (the page won't paint until it's fetched), so this
+   is just as flash-proof as inlining it would be, with far less
+   duplication across seven separate HTML files. */
+
+#page-loader {
+  visibility: visible; /* overrides the inherited hidden state set by the inline head script */
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+#page-loader img {
+  width: 56px;
+  height: 56px;
+  animation: page-loader-pulse 1.6s ease-in-out infinite;
+}
+#page-loader .page-loader-dots {
+  display: flex;
+  gap: 6px;
+}
+#page-loader .page-loader-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #D1382B;
+  animation: page-loader-bounce 1.2s ease-in-out infinite;
+}
+#page-loader .page-loader-dots span:nth-child(2) { animation-delay: 0.15s; }
+#page-loader .page-loader-dots span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes page-loader-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+@keyframes page-loader-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
+  40% { transform: translateY(-6px); opacity: 1; }
+}
+#page-loader.is-fading {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  #page-loader img,
+  #page-loader .page-loader-dots span { animation: none; }
+}

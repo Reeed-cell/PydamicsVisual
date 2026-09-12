@@ -31,6 +31,7 @@ async function checkAuthAndStatus() {
 
   currentUsername = staffRow?.username || 'staff';
 
+  revealPage();
   loadingState.hidden = true;
   securityView.hidden = false;
 

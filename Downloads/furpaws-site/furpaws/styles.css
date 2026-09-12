@@ -1072,6 +1072,39 @@ body > .skiptranslate { display: none !important; }
   margin-bottom: 22px;
 }
 
+.booking-confirm-summary {
+  margin: 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.booking-confirm-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.booking-confirm-row:last-child { border-bottom: none; padding-bottom: 0; }
+.booking-confirm-row dt {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  flex-shrink: 0;
+}
+.booking-confirm-row dd {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--ink);
+  text-align: right;
+  word-break: break-word;
+}
+.booking-confirm-actions {
+  display: flex;
+  gap: 12px;
+}
+.booking-confirm-actions .btn { flex: 1; justify-content: center; }
+
 .modal form {
   display: flex;
   flex-direction: column;

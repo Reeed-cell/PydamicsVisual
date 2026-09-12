@@ -405,6 +405,23 @@
   </a>
 </footer>
 
+<!-- BOOKING CONFIRMATION MODAL -->
+<div class="modal-overlay" id="booking-confirm-overlay" hidden>
+  <div class="modal" role="dialog" aria-labelledby="booking-confirm-title">
+    <button type="button" class="modal-close" id="close-booking-confirm" aria-label="Close">×</button>
+    <h2 id="booking-confirm-title">Double-check your request</h2>
+    <p class="modal-sub">Make sure this looks right before sending.</p>
+
+    <dl class="booking-confirm-summary" id="booking-confirm-summary"></dl>
+
+    <div class="booking-confirm-actions">
+      <button type="button" class="btn btn-ghost" id="booking-confirm-back">← Edit</button>
+      <button type="button" class="btn btn-primary" id="booking-confirm-send">Yes, send it</button>
+    </div>
+    <p class="form-status" id="booking-confirm-status"></p>
+  </div>
+</div>
+
 <!-- FEEDBACK MODAL -->
 <div class="modal-overlay" id="feedback-modal-overlay" hidden>
   <div class="modal" role="dialog" aria-labelledby="feedback-modal-title">

@@ -20,7 +20,13 @@ if (new URLSearchParams(window.location.search).get('timeout') === '1') {
   loginStatus.className = 'form-status';
 }
 
-// Check site-wide staff shutdown before showing the login form at all
+// Check site-wide staff shutdown BEFORE revealing the page at all —
+// previously this ran as fire-and-forget after the form was already
+// visible and enabled, so a real visitor could see and even start
+// typing into a login form that was about to be disabled out from
+// under them a moment later. Now the whole page stays behind the
+// loading screen until this resolves, and reveals only once in
+// whichever final state is actually correct.
 (async function checkStaffShutdown() {
   const { data, error } = await supabaseClient
     .from('site_status')
@@ -33,6 +39,8 @@ if (new URLSearchParams(window.location.search).get('timeout') === '1') {
     loginStatus.textContent = 'Staff login is temporarily disabled. Contact the site administrator.';
     loginStatus.classList.add('form-status--error');
   }
+
+  revealPage();
 })();
 
 if (loginForm) {

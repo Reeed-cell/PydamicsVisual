@@ -47,6 +47,7 @@ async function checkAuthAndLoad() {
   loadingState.hidden = true;
 
   if (error || !staffRow || staffRow.role !== 'developer') {
+    revealPage();
     noAccessView.hidden = false;
     return;
   }
@@ -60,6 +61,7 @@ async function checkAuthAndLoad() {
     return;
   }
 
+  revealPage();
   shutdownView.hidden = false;
   await refreshStatus();
 }

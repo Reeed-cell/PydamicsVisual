@@ -81,6 +81,7 @@ async function checkAuthAndLoad() {
   loadingState.hidden = true;
 
   if (error || !staffRow) {
+    revealPage();
     noAccessView.hidden = false;
     return;
   }
@@ -104,6 +105,9 @@ async function checkAuthAndLoad() {
 
   currentStaff = staffRow;
   dashUserLabel.textContent = `${staffRow.full_name} · ${staffRow.role.replace('_', ' ')}`;
+
+  // Every possible redirect condition has now passed — safe to reveal.
+  revealPage();
 
   if (['owner', 'assistant_vet', 'receptionist'].includes(staffRow.role)) {
     recordsView.hidden = false;

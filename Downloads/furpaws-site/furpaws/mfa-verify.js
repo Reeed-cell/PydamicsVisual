@@ -55,6 +55,7 @@ async function checkPendingMfa() {
   }
 
   // Valid pending state — show the code form.
+  revealPage();
   loadingCheck.hidden = true;
   mfaForm.hidden = false;
 }
